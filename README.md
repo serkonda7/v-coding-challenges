@@ -1,6 +1,6 @@
-# V Coding Challenges
+# V SoloLearn Coding Challenges
 
-![CI](https://github.com/Serkonda/v-coding-challenges/workflows/CI/badge.svg?branch=master)
+![CI](https://github.com/Serkonda/v-sololearn-coding-challenges/workflows/CI/badge.svg?branch=master)
 
 Coding challenges from SoloLearn implemented in V.
 > More will follow soon

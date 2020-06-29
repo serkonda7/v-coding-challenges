@@ -1,4 +1,4 @@
-/*
+/* Sort a String
 Given a string as input, output its characters alphabetically sorted from A to Z.
 
   - Number should go first
