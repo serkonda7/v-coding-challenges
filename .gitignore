@@ -1,0 +1,8 @@
+# Ignore build binaries
+*
+!*/
+!*.*
+*.exe
+
+# Ignore editor files
+*.code-workspace
