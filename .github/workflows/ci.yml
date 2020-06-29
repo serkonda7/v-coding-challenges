@@ -22,6 +22,4 @@ jobs:
           v-version: master
         id: v
       - name: string_sort
-        run: |
-          v string_sort/string_sort.v
-          v test string_sort
+        run: v test string_sort
