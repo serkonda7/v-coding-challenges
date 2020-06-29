@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+  schedule:
+    - cron: '0 8 * * *'
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up V
+        uses: nocturlab/setup-vlang-action@v1
+        with:
+          v-version: master
+        id: v
+      - name: string_sort
+        run: |
+          v string_sort/string_sort.v
+          v test string_sort
