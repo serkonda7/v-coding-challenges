@@ -1,8 +1,8 @@
 import string_sort
 
 fn test_plain_text() {
-	inp := ['challenge', 's p a c e']
-	exp := ['aceeghlln', 'aceps']
+	inp := ['challenge', 's p a c e', 'smallCAPS']
+	exp := ['aceeghlln', 'aceps', 'ACPSallms']
 	res := inp.map(string_sort.sort(it))
 	assert res == exp
 }
