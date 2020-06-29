@@ -8,7 +8,7 @@ Given a string as input, output its characters alphabetically sorted from A to Z
 module string_sort
 
 pub fn sort(s string) string {
-	mut chars := s.bytes()
+	mut chars := s.bytes().filter(it != ` `)
 	quick_sort(mut chars, 0, chars.len - 1)
 
 	mut sorted := ''

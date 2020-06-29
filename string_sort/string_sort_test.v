@@ -1,9 +1,9 @@
 import string_sort
 
 fn test_plain_text() {
-	inp := 'challenge'
-	exp := 'aceeghlln'
-	res := string_sort.sort(inp)
+	inp := ['challenge', 's p a c e']
+	exp := ['aceeghlln', 'aceps']
+	res := inp.map(string_sort.sort(it))
 	assert res == exp
 }
 
@@ -15,8 +15,8 @@ fn test_number_precedence() {
 }
 
 fn test_special_precedence() {
-	inp := r'$tar3'
-	exp := r'$3art'
-	res := string_sort.sort(inp)
+	inp := [r'$tar3', 'c_!e']
+	exp := [r'$3art', '!_ce']
+	res := inp.map(string_sort.sort(it))
 	assert res == exp
 }
