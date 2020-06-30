@@ -1,6 +1,8 @@
 /* Sort a String
+
 Given a string as input, output its characters alphabetically sorted from A to Z.
 
+Rules:
   - Number should go first
   - Special characters, such as symbols, go before numbers and letters
   - Whitespaces should be ignored.
