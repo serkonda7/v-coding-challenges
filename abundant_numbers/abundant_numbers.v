@@ -30,6 +30,11 @@ pub fn abundant_in_range(start, end int) []int {
 	return are_abundant
 }
 
+pub fn get_abundancy(num int) int {
+	sum := factor_sum(get_factors(num))
+	return sum - num  // Negative for non-abundant numbers
+}
+
 fn get_factors(num int) []int {
 	mut factors := []int{}
 	max_factor := num / 2  // The number itself is not counted

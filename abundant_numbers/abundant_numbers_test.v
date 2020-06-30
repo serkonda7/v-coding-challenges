@@ -17,8 +17,8 @@ fn test_factor_sum() {
 }
 
 fn test_is_abundant() {
-	inp := [12, 42, 13, 98, 945]
-	exp := [true, true, false, false, true]
+	inp := [12, 42, 945, 13, 28, 98]
+	exp := [true, true, true, false, false, false]
 	res := inp.map(is_abundant(it))
 	assert res == exp
 }
@@ -31,5 +31,12 @@ fn test_abundant_range() {
 		[940, 942, 945, 948]
 	]
 	res := inp.map(abundant_in_range(it[0], it[1]))
+	assert res == exp
+}
+
+fn test_abundancy() {
+	inp := [12, 18, 70, 28, 15]
+	exp := [4, 3, 4, 0, -6]
+	res := inp.map(get_abundancy(it))
 	assert res == exp
 }
