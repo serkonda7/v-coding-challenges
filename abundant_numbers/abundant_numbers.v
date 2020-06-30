@@ -18,6 +18,18 @@ pub fn is_abundant(num int) bool {
 	return false
 }
 
+pub fn abundant_in_range(start, end int) []int {
+	good_start := start + start % 2
+	mut are_abundant := []int{}
+	for i := good_start; i <= end; i += 2 {
+		if is_abundant(i) {
+			are_abundant << i
+		}
+	}
+
+	return are_abundant
+}
+
 fn get_factors(num int) []int {
 	mut factors := []int{}
 	max_factor := num / 2  // The number itself is not counted

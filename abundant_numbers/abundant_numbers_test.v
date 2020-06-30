@@ -23,3 +23,13 @@ fn test_is_abundant() {
 		assert r == true
 	}
 }
+
+fn test_abundant_range() {
+	inp := [[0, 19], [29, 42]]
+	exp := [
+		[12, 18],
+		[30, 36, 40, 42]
+	]
+	res := inp.map(abundant_in_range(it[0], it[1]))
+	assert res == exp
+}
