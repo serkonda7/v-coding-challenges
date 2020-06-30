@@ -1,11 +1,16 @@
 # V SoloLearn Coding Challenges
 
-![CI](https://github.com/Serkonda/v-sololearn-coding-challenges/workflows/CI/badge.svg?branch=master)
+![CI][ci-master]
 
-Coding challenges from SoloLearn implemented in V.
-> More will follow soon
+Coding challenges from the [SoloLearn App][sololearn] implemented in V.
+> Not compelte yet, more will follow soon!
 
 
 ## License
 
 Licensed under the [MIT License](LICENSE.md)
+
+
+<!-- Links -->
+[ci-master]: https://github.com/Serkonda/v-sololearn-coding-challenges/workflows/CI/badge.svg?branch=master
+[sololearn]: https://www.sololearn.com
