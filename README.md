@@ -3,7 +3,7 @@
 ![CI][ci-master]
 
 Coding challenges from the [SoloLearn app][sololearn] implemented in V.
-> Not compelte yet, more will follow soon!
+> Not complete yet, more will follow soon!
 
 
 ## License
