@@ -21,5 +21,5 @@ jobs:
         with:
           v-version: master
         id: v
-      - name: string_sort
-        run: v test string_sort
+      - name: Run tests
+        run: v test .
