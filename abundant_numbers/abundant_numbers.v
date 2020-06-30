@@ -10,19 +10,31 @@ Tasks:
 module abundant_numbers
 
 pub fn is_abundant(num int) bool {
+	factors := get_factors(num)
+	sum := factor_sum(factors)
+	if sum > num {
+		return true
+	}
+	return false
+}
+
+fn get_factors(num int) []int {
 	mut factors := []int{}
-	max_factor := num / 2
+	max_factor := num / 2  // The number itself is not counted
 	for i in 1..max_factor + 1 {
 		if num % i == 0 {
 			factors << i
 		}
 	}
+
+	return factors
+}
+
+fn factor_sum(factors []int) int {
 	mut sum := 0
 	for f in factors {
 		sum += f
 	}
-	if sum > num {
-		return true
-	}
-	return false
+
+	return sum
 }
