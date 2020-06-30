@@ -1,4 +1,5 @@
 /* Abundant Numbers
+    https://en.wikipedia.org/wiki/Abundant_number
 
 If the sum of factors of a number is greater than that number, it is considered to be abundant.
 
