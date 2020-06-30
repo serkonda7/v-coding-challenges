@@ -1,11 +1,11 @@
 module abundant_numbers
 
 fn test_factor_calculation() {
-	inp := [12, 15, 22]
+	inp := [12, 15, 945]
 	exp := [
 		[1, 2, 3, 4, 6],
 		[1, 3, 5],
-		[1, 2, 11]
+		[1, 3, 5, 7, 9, 15, 21, 27, 35, 45, 63, 105, 135, 189, 315]
 	]
 	res := inp.map(get_factors(it))
 	assert res == exp
@@ -17,18 +17,18 @@ fn test_factor_sum() {
 }
 
 fn test_is_abundant() {
-	inp := [12, 42, 100]
+	inp := [12, 42, 13, 98, 945]
+	exp := [true, true, false, false, true]
 	res := inp.map(is_abundant(it))
-	for r in res {
-		assert r == true
-	}
+	assert res == exp
 }
 
 fn test_abundant_range() {
-	inp := [[0, 19], [29, 42]]
+	inp := [[0, 19], [29, 42], [940, 950]]
 	exp := [
 		[12, 18],
-		[30, 36, 40, 42]
+		[30, 36, 40, 42],
+		[940, 942, 945, 948]
 	]
 	res := inp.map(abundant_in_range(it[0], it[1]))
 	assert res == exp

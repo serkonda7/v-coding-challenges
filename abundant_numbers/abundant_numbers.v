@@ -20,9 +20,8 @@ pub fn is_abundant(num int) bool {
 }
 
 pub fn abundant_in_range(start, end int) []int {
-	good_start := start + start % 2
 	mut are_abundant := []int{}
-	for i := good_start; i <= end; i += 2 {
+	for i in start..end+1 {
 		if is_abundant(i) {
 			are_abundant << i
 		}
