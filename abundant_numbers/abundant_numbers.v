@@ -10,9 +10,10 @@ Tasks:
 */
 module abundant_numbers
 
+import util
+
 pub fn is_abundant(num int) bool {
-	factors := get_factors(num)
-	sum := factor_sum(factors)
+	sum := util.factor_sum(util.get_factors(num))
 	if sum > num {
 		return true
 	}
@@ -31,27 +32,6 @@ pub fn abundant_in_range(start, end int) []int {
 }
 
 pub fn get_abundancy(num int) int {
-	sum := factor_sum(get_factors(num))
+	sum := util.factor_sum(util.get_factors(num))
 	return sum - num  // Negative for non-abundant numbers
-}
-
-fn get_factors(num int) []int {
-	mut factors := []int{}
-	max_factor := num / 2  // The number itself is not counted
-	for i in 1..max_factor + 1 {
-		if num % i == 0 {
-			factors << i
-		}
-	}
-
-	return factors
-}
-
-fn factor_sum(factors []int) int {
-	mut sum := 0
-	for f in factors {
-		sum += f
-	}
-
-	return sum
 }
