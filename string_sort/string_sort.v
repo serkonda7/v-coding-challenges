@@ -28,16 +28,10 @@ fn quick_sort(mut chars []byte, l, r int) {
 	for i in l+1..r+1 {
 		if chars[i] < chars[l] {
 			piv++
-			swap(mut chars, i, piv)
+			chars[i], chars[piv] = chars[piv], chars[i]
 		}
 	}
-	swap(mut chars, l, piv)
+	chars[l], chars[piv] = chars[piv], chars[l]
 	quick_sort(mut chars, l, piv-1)
 	quick_sort(mut chars, piv+1, r)
-}
-
-fn swap(mut chars []byte, a, b int) {
-	tmp := chars[a]
-	chars[a] = chars[b]
-	chars[b] = tmp
 }
