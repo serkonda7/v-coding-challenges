@@ -14,10 +14,7 @@ import util
 
 pub fn is_abundant(num int) bool {
 	sum := util.factor_sum(util.get_factors(num))
-	if sum > num {
-		return true
-	}
-	return false
+	return sum > num
 }
 
 pub fn abundant_in_range(start, end int) []int {
