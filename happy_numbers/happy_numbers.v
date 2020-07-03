@@ -65,7 +65,7 @@ pub fn square_steps(num int) (bool, []string) {
 			squares << '$rem * $rem'
 			num2 = num2/10
 		}
-		sqr_str := squares.join(' + ')
+		sqr_str := squares.reverse().join(' + ')
 		steps << '$sqr_str = $sum'
 		num2 = sum
 	}

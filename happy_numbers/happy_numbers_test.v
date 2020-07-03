@@ -20,8 +20,8 @@ fn test_happy_range() {
 fn test_square_steps() {
 	inp := [13, 24]
 	exp := [
-		['3 * 3 + 1 * 1 = 10', '0 * 0 + 1 * 1 = 1'],
-		['4 * 4 + 2 * 2 = 20', '0 * 0 + 2 * 2 = 4']
+		['1 * 1 + 3 * 3 = 10', '1 * 1 + 0 * 0 = 1'],
+		['2 * 2 + 4 * 4 = 20', '2 * 2 + 0 * 0 = 4']
 	]
 	for idx, i in inp {
 		_, steps := square_steps(i)
