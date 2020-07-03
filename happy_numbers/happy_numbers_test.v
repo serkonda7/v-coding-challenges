@@ -18,5 +18,13 @@ fn test_happy_range() {
 }
 
 fn test_square_steps() {
-	//TODO
+	inp := [13, 24]
+	exp := [
+		['3 * 3 + 1 * 1 = 10', '0 * 0 + 1 * 1 = 1'],
+		['4 * 4 + 2 * 2 = 20', '0 * 0 + 2 * 2 = 4']
+	]
+	for idx, i in inp {
+		_, steps := square_steps(i)
+		assert steps == exp[idx]
+	}
 }

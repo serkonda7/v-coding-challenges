@@ -20,13 +20,12 @@ pub fn is_happy(num int) bool {
 		if num2 == 4 {
 			return false
 		}
-		mut rem := 0
 		mut sum := 0
 		for {
 			if num2 <= 0 {
 				break
 			}
-			rem = num2 % 10
+			rem := num2 % 10
 			sum += (rem * rem)
 			num2 = num2/10
 		}
@@ -45,4 +44,29 @@ pub fn happy_in_range(start, end int) []int {
 	return are_happy
 }
 
-//TODO: square steps
+pub fn square_steps(num int) (bool, []string) {
+	mut num2 := num
+	mut steps := []string{}
+	for {
+		if num2 == 1 {
+			return true, steps
+		}
+		if num2 == 4 {
+			return false, steps
+		}
+		mut sum := 0
+		mut squares := []string{}
+		for {
+			if num2 <= 0 {
+				break
+			}
+			rem := num2 % 10
+			sum += (rem * rem)
+			squares << '$rem * $rem'
+			num2 = num2/10
+		}
+		sqr_str := squares.join(' + ')
+		steps << '$sqr_str = $sum'
+		num2 = sum
+	}
+}
