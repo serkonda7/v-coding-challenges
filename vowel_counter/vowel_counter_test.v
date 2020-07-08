@@ -1,6 +1,5 @@
 module vowel_counter
 
-
 fn test_vowel_count() {
 	inp := ['SoloLearn', 'Programming', 'Lorem Ipsum', 'Hello, World!']
 	exp := [4, 3, 4, 3]
