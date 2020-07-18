@@ -4,6 +4,7 @@ files := ls('.') or { panic(err) }
 dirs := files.filter(!it.starts_with('.') && is_dir(it))
 for dir in dirs {
 	if dir == 'util' { continue }
+	symlink('util', '$dir/modules/util') or { panic(err) }
 	println(dir)
 	file_path := '$dir/${dir}.v'
 	ret := system('v -shared $file_path')
