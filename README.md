@@ -2,8 +2,10 @@
 
 ![CI][ci-master]
 
-Coding challenges from the [SoloLearn app][sololearn] implemented in V.
-> Not complete yet, more will follow soon!
+This repo contains the coding challenges from the [SoloLearn app][sololearn] implemented in V.
+It can help V newcomers by providing lots of short and straightforward code pieces.
+
+> The challenges are far from complete, more will follow soon!
 
 
 ## License
