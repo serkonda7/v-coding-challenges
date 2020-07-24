@@ -15,7 +15,7 @@ pub fn is_balanced(str string) bool {
 		if s == `(` {
 			open_paren++
 		} else if s == `)` {
-			if open_paren == -1 {
+			if open_paren == 0 {
 				return false
 			}
 			open_paren--
