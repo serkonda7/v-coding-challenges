@@ -8,10 +8,12 @@ module balanced_parenthesis
 
 pub fn is_balanced(str string) bool {
 	mut open_paren := 0
-	for s in str {
-		// if s.str() == r'\' {
-		// 	continue
-		// }
+	for i := 0; i < str.len; i++ {
+		s := str[i]
+		if s == `\\` {
+			i++
+			continue
+		}
 		if s == `(` {
 			open_paren++
 		} else if s == `)` {
