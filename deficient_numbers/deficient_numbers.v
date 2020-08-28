@@ -11,10 +11,14 @@ Tasks:
 */
 module deficient_numbers
 
-import util
+import util.factors
 
 pub fn is_deficient(num int) bool {
-	sum := util.factor_sum(util.get_factors(num))
+	facs := factors.get_proper_factors(num) or {
+		panic(err)
+	}
+	sum := factors.factor_sum(facs)
+	println(sum)
 	return sum < num
 }
 
@@ -29,6 +33,9 @@ pub fn deficient_in_range(start, end int) []int {
 }
 
 pub fn get_deficiency(num int) int {
-	sum := util.factor_sum(util.get_factors(num))
+	facs := factors.get_proper_factors(num) or {
+		panic(err)
+	}
+	sum := factors.factor_sum(facs)
 	return num - sum
 }

@@ -11,10 +11,13 @@ Tasks:
 */
 module abundant_numbers
 
-import util
+import util.factors
 
 pub fn is_abundant(num int) bool {
-	sum := util.factor_sum(util.get_factors(num))
+	facs := factors.get_proper_factors(num) or {
+		panic(err)
+	}
+	sum := factors.factor_sum(facs)
 	return sum > num
 }
 
@@ -29,6 +32,9 @@ pub fn abundant_in_range(start, end int) []int {
 }
 
 pub fn get_abundancy(num int) int {
-	sum := util.factor_sum(util.get_factors(num))
+	facs := factors.get_proper_factors(num) or {
+		panic(err)
+	}
+	sum := factors.factor_sum(facs)
 	return sum - num // Negative for non-abundant numbers
 }

@@ -8,7 +8,7 @@ fn test_is_deficient() {
 }
 
 fn test_deficient_range() {
-	inp := [[0, 7], [36, 42]]
+	inp := [[1, 7], [36, 42]]
 	exp := [
 		[1, 2, 3, 4, 5, 7],
 		[37, 38, 39, 41],
