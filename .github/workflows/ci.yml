@@ -21,5 +21,7 @@ jobs:
         with:
           v-version: master
         id: v
+      - name: Check formatting
+        run: v run fmt_verify_all.vsh
       - name: Run tests
         run: v test .
