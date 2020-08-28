@@ -1,4 +1,5 @@
-/* Happy Numbers https://en.wikipedia.org/wiki/Happy_number
+/*
+Happy Numbers https://en.wikipedia.org/wiki/Happy_number
 
 If the repeated sum of squares of the digits of a number is equal to 1, it is considered to be happy.
 
@@ -27,7 +28,7 @@ pub fn is_happy(num int) bool {
 			}
 			rem := num2 % 10
 			sum += (rem * rem)
-			num2 = num2/10
+			num2 = num2 / 10
 		}
 		num2 = sum
 	}
@@ -35,12 +36,11 @@ pub fn is_happy(num int) bool {
 
 pub fn happy_in_range(start, end int) []int {
 	mut are_happy := []int{}
-	for i in start..end+1 {
+	for i in start .. end + 1 {
 		if is_happy(i) {
 			are_happy << i
 		}
 	}
-
 	return are_happy
 }
 
@@ -63,7 +63,7 @@ pub fn square_steps(num int) (bool, []string) {
 			rem := num2 % 10
 			sum += (rem * rem)
 			squares << '$rem * $rem'
-			num2 = num2/10
+			num2 = num2 / 10
 		}
 		sqr_str := squares.reverse().join(' + ')
 		steps << '$sqr_str = $sum'

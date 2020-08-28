@@ -1,4 +1,5 @@
-/* Is That an IP Address?
+/*
+Is That an IP Address?
 
 Given a string as input, create a program to evaluate whether or not it is a valid IPv4 address.
 
@@ -18,7 +19,7 @@ pub fn is_valid(ip string) bool {
 	mut no_digit_re, _, _ := regex.regex('\\D')
 	for n in nums {
 		_, re_match := no_digit_re.find(n)
-		if re_match != 0{
+		if re_match != 0 {
 			return false
 		}
 		if n.int() < 0 || n.int() > 255 {

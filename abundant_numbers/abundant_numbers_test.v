@@ -12,7 +12,7 @@ fn test_abundant_range() {
 	exp := [
 		[12, 18],
 		[30, 36, 40, 42],
-		[940, 942, 945, 948]
+		[940, 942, 945, 948],
 	]
 	res := inp.map(abundant_in_range(it[0], it[1]))
 	assert res == exp

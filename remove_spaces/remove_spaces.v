@@ -1,4 +1,5 @@
-/* Remove Spaces from a String
+/*
+Remove Spaces from a String
 
 Given a string as input, output it without spaces.
 */

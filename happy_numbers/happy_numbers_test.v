@@ -11,7 +11,7 @@ fn test_happy_range() {
 	inp := [[1, 18], [95, 105]]
 	exp := [
 		[1, 7, 10, 13],
-		[97, 100, 103]
+		[97, 100, 103],
 	]
 	res := inp.map(happy_in_range(it[0], it[1]))
 	assert res == exp
@@ -21,7 +21,7 @@ fn test_square_steps() {
 	inp := [13, 24]
 	exp := [
 		['1 * 1 + 3 * 3 = 10', '1 * 1 + 0 * 0 = 1'],
-		['2 * 2 + 4 * 4 = 20', '2 * 2 + 0 * 0 = 4']
+		['2 * 2 + 4 * 4 = 20', '2 * 2 + 0 * 0 = 4'],
 	]
 	for idx, i in inp {
 		_, steps := square_steps(i)

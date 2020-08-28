@@ -1,4 +1,5 @@
-/* Password Validator
+/*
+Password Validator
 
 Password validator is a program that validates passwords to match specific rules.
 
@@ -20,16 +21,13 @@ pub fn is_valid(password string) bool {
 	if password.len < 6 || password.len > 14 {
 		return false
 	}
-
 	if password.count(' ') > 0 {
 		return false
 	}
-
 	mut number_re, _, _ := regex.regex(r'\d')
 	if number_re.find_all(password) == []int{} {
 		return false
 	}
-
 	mut lower_re, _, _ := regex.regex(r'\a')
 	if lower_re.find_all(password) == []int{} {
 		return false
@@ -38,11 +36,9 @@ pub fn is_valid(password string) bool {
 	if upper_re.find_all(password) == []int{} {
 		return false
 	}
-
 	mut special_re, _, _ := regex.regex(r'[^A-Za-z0-9]')
 	if special_re.find_all(password) == []int{} {
 		return false
 	}
-
 	return true
 }

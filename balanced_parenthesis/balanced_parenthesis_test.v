@@ -17,8 +17,8 @@ fn test_unbalanced_strings() {
 }
 
 fn test_with_escape() {
-	inp := ['(nope\\)', '(v\\(al)',]
-	exp := [false, true,]
+	inp := ['(nope\\)', '(v\\(al)']
+	exp := [false, true]
 	res := inp.map(is_balanced(it))
 	assert res == exp
 }

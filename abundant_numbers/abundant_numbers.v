@@ -1,4 +1,5 @@
-/* Abundant Numbers
+/*
+Abundant Numbers
     https://en.wikipedia.org/wiki/Abundant_number
 
 If the sum of factors of a number is greater than that number, it is considered to be abundant.
@@ -19,16 +20,15 @@ pub fn is_abundant(num int) bool {
 
 pub fn abundant_in_range(start, end int) []int {
 	mut are_abundant := []int{}
-	for i in start..end+1 {
+	for i in start .. end + 1 {
 		if is_abundant(i) {
 			are_abundant << i
 		}
 	}
-
 	return are_abundant
 }
 
 pub fn get_abundancy(num int) int {
 	sum := util.factor_sum(util.get_factors(num))
-	return sum - num  // Negative for non-abundant numbers
+	return sum - num // Negative for non-abundant numbers
 }

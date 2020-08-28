@@ -1,4 +1,5 @@
-/* Collatz Conjecture
+/*
+Collatz Conjecture
 
 The Collatz conjecture (also known as the Ulam conjecture or the Syracuse problem) is an unsolved mathematical problem, which is very easy to formulate:
 

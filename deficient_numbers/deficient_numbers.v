@@ -1,4 +1,5 @@
-/* Deficient Numbers
+/*
+Deficient Numbers
     https://en.wikipedia.org/wiki/Deficient_number
 
 A number is considered deficient if the sum of its factors is less than that number.
@@ -19,12 +20,11 @@ pub fn is_deficient(num int) bool {
 
 pub fn deficient_in_range(start, end int) []int {
 	mut are_deficient := []int{}
-	for i in start..end+1 {
+	for i in start .. end + 1 {
 		if is_deficient(i) {
 			are_deficient << i
 		}
 	}
-
 	return are_deficient
 }
 

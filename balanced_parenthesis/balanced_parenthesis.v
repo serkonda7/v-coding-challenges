@@ -1,4 +1,5 @@
-/* Balanced Parenthesis
+/*
+Balanced Parenthesis
 
 Create a program that checks if in a given string expression all the parenthesis are balanced.
 

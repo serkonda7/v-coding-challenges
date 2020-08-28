@@ -1,4 +1,5 @@
-/* Palindrome Numbers
+/*
+Palindrome Numbers
 
 Palindromic number is a number that is the same when written forwards or backwards.
 

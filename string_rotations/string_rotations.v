@@ -1,4 +1,5 @@
-/* String Rotations
+/*
+String Rotations
 
 Create a function that accepts a string argument and returns an array of strings, which are shifted versions of the argument string.
 
@@ -10,9 +11,9 @@ module string_rotations
 
 pub fn rotated_string(str string) []string {
 	len := str.len
-	mut rot_str := []string{ len: len }
-	for i in 0..len {
-		last_str := if i > 0 { rot_str[i-1] } else { str }
+	mut rot_str := []string{len: len}
+	for i in 0 .. len {
+		last_str := if i > 0 { rot_str[i - 1] } else { str }
 		s := last_str[1..len] + last_str[0].str()
 		rot_str[i] = s
 	}
