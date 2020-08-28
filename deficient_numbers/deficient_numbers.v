@@ -11,20 +11,24 @@ Tasks:
 */
 module deficient_numbers
 
+import math
 import util.factors
 
 pub fn is_deficient(num int) bool {
+	if num <= 0 {
+		return false
+	}
 	facs := factors.get_proper_factors(num) or {
 		panic(err)
 	}
 	sum := factors.factor_sum(facs)
-	println(sum)
 	return sum < num
 }
 
-pub fn deficient_in_range(start, end int) []int {
+pub fn deficient_in_range(min, max int) []int {
+	rmin := int(math.max(min, 1))
 	mut are_deficient := []int{}
-	for i in start .. end + 1 {
+	for i in rmin .. max {
 		if is_deficient(i) {
 			are_deficient << i
 		}
@@ -37,5 +41,6 @@ pub fn get_deficiency(num int) int {
 		panic(err)
 	}
 	sum := factors.factor_sum(facs)
+	// Negative value for non-deficient numbers
 	return num - sum
 }

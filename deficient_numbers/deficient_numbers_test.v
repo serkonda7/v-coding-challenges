@@ -1,25 +1,41 @@
 module deficient_numbers
 
 fn test_is_deficient() {
-	inp := [1, 2, 10, 86, 18, 6, 42]
-	exp := [true, true, true, true, false, false, false]
-	res := inp.map(is_deficient(it))
-	assert res == exp
+	// Deficient numbers
+	abd_nums := [1, 2, 10, 86]
+	for num in abd_nums {
+		res := is_deficient(num)
+		assert res == true
+	}
+	// Not deficient numbers
+	unadb_nums := [18, 6, 42]
+	for num in unadb_nums {
+		res := is_deficient(num)
+		assert res == false
+	}
+	// 0 and negative
+	other_nums := [-12, -1, 0]
+	for num in other_nums {
+		res := is_deficient(num)
+		assert res == false
+	}
 }
 
 fn test_deficient_range() {
-	inp := [[1, 7], [36, 42]]
-	exp := [
-		[1, 2, 3, 4, 5, 7],
+	ranges := [[0, 7], [36, 42]]
+	expected := [
+		[1, 2, 3, 4, 5],
 		[37, 38, 39, 41],
 	]
-	res := inp.map(deficient_in_range(it[0], it[1]))
-	assert res == exp
+	for i, range in ranges {
+		res := deficient_in_range(range[0], range[1])
+		assert res == expected[i]
+	}
 }
 
 fn test_deficiency() {
-	inp := [1, 21, 50, 28, 42]
-	exp := [1, 10, 7, 0, -12]
+	inp := [1, 21, 28, 42, 50]
+	exp := [1, 10, 0, -12, 7]
 	res := inp.map(get_deficiency(it))
 	assert res == exp
 }
