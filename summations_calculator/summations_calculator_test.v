@@ -1,8 +1,8 @@
 module summations_calculator
 
 struct Input {
-	min int
-	max int
+	min        int
+	max        int
 	expression string
 }
 

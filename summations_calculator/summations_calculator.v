@@ -37,7 +37,7 @@ fn add(a, b int) int {
 	return a + b
 }
 
-fn sub(a,b int) int {
+fn sub(a, b int) int {
 	return a - b
 }
 

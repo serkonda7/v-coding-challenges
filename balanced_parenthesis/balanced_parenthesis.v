@@ -9,20 +9,38 @@ module balanced_parenthesis
 
 pub fn is_balanced(str string) bool {
 	mut open_paren := 0
+	mut open_brackets := 0
+	mut open_curly := 0
 	for i := 0; i < str.len; i++ {
-		s := str[i]
-		if s == `\\` {
-			i++
-			continue
-		}
-		if s == `(` {
-			open_paren++
-		} else if s == `)` {
-			if open_paren == 0 {
-				return false
+		c := str[i]
+		match c {
+			`\\` {
+				i++
+				continue
 			}
-			open_paren--
+			`(` {
+				open_paren++
+			}
+			`[` {
+				open_brackets++
+			}
+			`{` {
+				open_curly++
+			}
+			`)` {
+				open_paren--
+			}
+			`]` {
+				open_brackets--
+			}
+			`}` {
+				open_curly--
+			}
+			else {}
+		}
+		if open_paren < 0 || open_brackets < 0 || open_curly < 0 {
+			return false
 		}
 	}
-	return open_paren == 0
+	return open_paren == 0 && open_brackets == 0 && open_curly == 0
 }

@@ -1,24 +1,26 @@
 module balanced_parenthesis
 
-fn test_balanced_strings() {
-	inp := ['(test)', '()(())', '(val()id)', 'a()b', '']
-	res := inp.map(is_balanced(it))
-	for r in res {
-		assert r == true
+fn test_balanced() {
+	inputs := ['', '(test)', '()(())', '{val()id}', 'a[]b', '([{)]}']
+	for inp in inputs {
+		res := is_balanced(inp)
+		assert res == true
 	}
 }
 
-fn test_unbalanced_strings() {
-	inp := ['(no()', '(123(456)(7))(', '(', ')', ')(']
-	res := inp.map(is_balanced(it))
-	for r in res {
-		assert r == false
+fn test_unbalanced() {
+	inputs := ['(no()', '(123(456)(7))(', '(', ')', ')(', '[}', '([)[']
+	for inp in inputs {
+		res := is_balanced(inp)
+		assert res == false
 	}
 }
 
 fn test_with_escape() {
-	inp := ['(nope\\)', '(v\\(al)']
-	exp := [false, true]
-	res := inp.map(is_balanced(it))
-	assert res == exp
+	inputs := ['(nope\\)', '(v\\(al)', '{\\]}[(])']
+	expected := [false, true, true]
+	for i, inp in inputs {
+		res := is_balanced(inp)
+		assert res == expected[i]
+	}
 }
