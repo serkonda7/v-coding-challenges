@@ -1,22 +1,25 @@
 module string_sort
 
 fn test_plain_text() {
-	inp := ['challenge', 's p a c e', 'smallCAPS']
-	exp := ['aceeghlln', 'aceps', 'ACPSallms']
-	res := inp.map(sort(it))
-	assert res == exp
+	unsorted := ['challenge', 's p a c e', 'smallCAPS']
+	sorted := ['aceeghlln', 'aceps', 'ACPSallms']
+	for i, str in unsorted {
+		res := sort(str)
+		assert res == sorted[i]
+	}
 }
 
 fn test_number_precedence() {
 	inp := 'happy42'
 	exp := '24ahppy'
-	res := sort(inp)
-	assert res == exp
+	assert sort(inp) == exp
 }
 
 fn test_special_precedence() {
-	inp := [r'$tar3', 'c_!e']
-	exp := [r'$3art', '!_ce']
-	res := inp.map(sort(it))
-	assert res == exp
+	unsorted := [r'$tar3', 'c_!e']
+	sorted := [r'$3art', '!_ce']
+	for i, str in unsorted {
+		res := sort(str)
+		assert res == sorted[i]
+	}
 }
