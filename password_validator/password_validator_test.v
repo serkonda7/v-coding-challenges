@@ -1,36 +1,41 @@
 module password_validator
 
 fn test_pw_length() {
-	inp := ['1&Abc', '2&Abcde', '3&thisIsTooLong']
-	exp := [false, true, false]
-	res := inp.map(is_valid(it))
-	assert res == exp
+	passwords := ['1&Abc', '2&Abcde', '3&thisIsTooLong']
+	expected := [false, true, false]
+	for i, pw in passwords {
+		assert is_valid(pw) == expected[i]
+	}
 }
 
 fn test_spaces() {
-	inp := ['1&Ab cde', '2&Abcde']
-	exp := [false, true]
-	res := inp.map(is_valid(it))
-	assert res == exp
+	passwords := ['1&Ab cde', '2&Abcde']
+	expected := [false, true]
+	for i, pw in passwords {
+		assert is_valid(pw) == expected[i]
+	}
 }
 
 fn test_numbers() {
-	inp := ['@ABCdef', '&123hasNUM']
-	exp := [false, true]
-	res := inp.map(is_valid(it))
-	assert res == exp
+	passwords := ['@ABCdef', '&123hasNUM']
+	expected := [false, true]
+	for i, pw in passwords {
+		assert is_valid(pw) == expected[i]
+	}
 }
 
 fn test_letter_case() {
-	inp := ['@1onlylower', '@2HIGHCASE', '3@miXEd']
-	exp := [false, false, true]
-	res := inp.map(is_valid(it))
-	assert res == exp
+	passwords := ['@1onlylower', '@2HIGHCASE', '3@miXEd']
+	expected := [false, false, true]
+	for i, pw in passwords {
+		assert is_valid(pw) == expected[i]
+	}
 }
 
 fn test_special_chars() {
-	inp := ['noSpec1als', 'also3NONE', 'per?F3ct']
-	exp := [false, false, true]
-	res := inp.map(is_valid(it))
-	assert res == exp
+	passwords := ['noSpec1als', 'also3NONE', 'per?F3ct']
+	expected := [false, false, true]
+	for i, pw in passwords {
+		assert is_valid(pw) == expected[i]
+	}
 }
