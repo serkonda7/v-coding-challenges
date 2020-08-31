@@ -1,20 +1,21 @@
 module remove_spaces
 
 fn test_remove_spaces() {
-	inp := [
+	inputs := [
 		'ab c  d e fgh i  j kl mn  opqr  stuvwxyz',
 		'null',
 		'  ',
 		' before',
 		'after  ',
 	]
-	exp := [
+	expected := [
 		'abcdefghijklmnopqrstuvwxyz',
 		'null',
 		'',
 		'before',
 		'after',
 	]
-	res := inp.map(remove_whitespace(it))
-	assert res == exp
+	for i, inp in inputs {
+		assert remove_whitespace(inp) == expected[i]
+	}
 }
