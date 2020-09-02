@@ -10,6 +10,6 @@ for file in v_files {
 	}
 }
 if errs > 0 {
-	println('Failed with $errs unformatted files')
+	println('Error: $errs of $v_files.len files are not formatted')
 	exit(1)
 }
