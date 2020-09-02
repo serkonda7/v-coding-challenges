@@ -9,7 +9,9 @@ for file in v_files {
 		errs++
 	}
 }
+successfull := v_files.len - skipped - errs
+println('Successfull\t| Errors\t| Total')
+println('$successfull\t\t| $errs\t\t| $v_files.len')
 if errs > 0 {
-	println('Error: $errs of $v_files.len files are not formatted')
 	exit(1)
 }
