@@ -41,17 +41,37 @@ As the computer investigator, write a program, which reads the transaction logs,
 */
 module paranoia
 
+const (
+	full_month = {
+		'Jan': 'January'
+		'Feb': 'February'
+		'Mar': 'March'
+		'Apr': 'April'
+		'May': 'Mai'
+		'Jun': 'June'
+		'Jul': 'July'
+		'Aug': 'August'
+		'Sep': 'September'
+		'Oct': 'October'
+		'Nov': 'November'
+		'Dec': 'December'
+	}
+)
+
 enum Reason {
-	SLR ENT OTR
+	slr
+	ent
+	otr
 }
 
 struct Transaction {
-	month string
+pub:
+	month  string
 	reason Reason
 	amount int
-	size byte
+	size   byte
 }
 
-pub fn get_inconsistencies(transaction_log []Transaction) string {
+pub fn get_inconsistency(transaction_log []Transaction) string {
 	return ''
 }
