@@ -69,7 +69,7 @@ pub mut:
 	month  string
 	reason Reason
 	amount int
-	size   byte
+	unit   byte
 }
 
 pub fn get_inconsistency(transaction_log []Transaction) ?string {
@@ -82,19 +82,40 @@ pub fn get_inconsistency(transaction_log []Transaction) ?string {
 
 fn unify_expense_amounts(mut transaction_log []Transaction) ? {
 	for i, trans in transaction_log {
-		match trans.size {
+		match trans.unit {
 			`k`, `K` {}
 			`m`, `M` {
 				transaction_log[i].amount = trans.amount * 1000
-				transaction_log[i].size = `K`
+				transaction_log[i].unit = `K`
 			}
 			`b`, `B` {
 				transaction_log[i].amount = trans.amount * 1000 * 1000
-				transaction_log[i].size = `K`
+				transaction_log[i].unit = `K`
 			}
 			else {
-				return error('Unknown expense size `${trans.size.str()}`')
+				return error('Unknown expense amount unit `${trans.unit.str()}`')
 			}
 		}
 	}
+}
+
+fn get_expenses_by_month(transaction_log []Transaction) map[string][]int {
+	mut month_expenses := map[string][]int
+	for trans in transaction_log {
+		if trans.month !in month_expenses {
+			month_expenses[trans.month] = [0, 0, 0]
+		}
+		match trans.reason {
+			.slr {
+				month_expenses[trans.month][0] = trans.amount
+			}
+			.ent {
+				month_expenses[trans.month][1] = trans.amount
+			}
+			.otr {
+				month_expenses[trans.month][2] = trans.amount
+			}
+		}
+	}
+	return month_expenses
 }
