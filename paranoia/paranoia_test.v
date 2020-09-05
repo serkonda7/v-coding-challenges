@@ -45,7 +45,9 @@ fn test_get_inconsistencies() {
 		'April',
 	]
 	for i, log in transaction_logs {
-		res := get_inconsistency(log)
+		res := get_inconsistency(log) or {
+			panic(err)
+		}
 		exp := expected[i]
 		assert res == exp
 	}
@@ -65,3 +67,47 @@ Sep OTR 1190 K
 
 Here, July expenses show an inconsistency and should be reported..
 */
+
+fn test_unify_expense_amounts() {
+	mut transaction_log := [
+		Transaction{
+			amount: 4
+			size: `M`
+		},
+		Transaction{
+			amount: 800
+			size: `K`
+		},
+		Transaction{
+			amount: 2
+			size: `B`
+		},
+	]
+	expected := [
+		Transaction{
+			amount: 4000
+			size: `K`
+		},
+		Transaction{
+			amount: 800
+			size: `K`
+		},
+		Transaction{
+			amount: 2000000
+			size: `K`
+		},
+	]
+	unify_expense_amounts(mut transaction_log) or {
+		panic(err)
+	}
+	assert transaction_log == expected
+	mut invalid_log := [
+		Transaction{
+			amount: 4
+			size: `A`
+		},
+	]
+	unify_expense_amounts(mut invalid_log) or {
+		assert err == 'Unknown expense size `A`'
+	}
+}

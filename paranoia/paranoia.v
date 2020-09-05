@@ -58,20 +58,43 @@ const (
 	}
 )
 
-enum Reason {
+pub enum Reason {
 	slr
 	ent
 	otr
 }
 
 struct Transaction {
-pub:
+pub mut:
 	month  string
 	reason Reason
 	amount int
 	size   byte
 }
 
-pub fn get_inconsistency(transaction_log []Transaction) string {
+pub fn get_inconsistency(transaction_log []Transaction) ?string {
+	mut trans_log := transaction_log
+	unify_expense_amounts(mut trans_log) or {
+		return error(err)
+	}
 	return ''
+}
+
+fn unify_expense_amounts(mut transaction_log []Transaction) ? {
+	for i, trans in transaction_log {
+		match trans.size {
+			`k`, `K` {}
+			`m`, `M` {
+				transaction_log[i].amount = trans.amount * 1000
+				transaction_log[i].size = `K`
+			}
+			`b`, `B` {
+				transaction_log[i].amount = trans.amount * 1000 * 1000
+				transaction_log[i].size = `K`
+			}
+			else {
+				return error('Unknown expense size `${trans.size.str()}`')
+			}
+		}
+	}
 }
