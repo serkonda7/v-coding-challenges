@@ -21,6 +21,7 @@ fn test_gapful_range() {
 	]
 	for i, inp in inputs {
 		res := gapful_in_range(inp[0], inp[1])
-		assert res == expected[i]
+		exp := expected[i]
+		assert res == exp
 	}
 }

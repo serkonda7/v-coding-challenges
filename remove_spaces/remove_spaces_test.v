@@ -16,6 +16,8 @@ fn test_remove_spaces() {
 		'after',
 	]
 	for i, inp in inputs {
-		assert remove_whitespace(inp) == expected[i]
+		res := remove_whitespace(inp)
+		exp := expected[i]
+		assert res == exp
 	}
 }

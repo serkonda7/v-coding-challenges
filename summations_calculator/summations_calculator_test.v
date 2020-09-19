@@ -7,7 +7,7 @@ struct Input {
 }
 
 fn test_get_summation() {
-	inputs := [
+	summations := [
 		Input{1, 3, '+3'},
 		Input{2, 4, '+ 2'},
 		Input{10, 12, '-10'},
@@ -17,11 +17,12 @@ fn test_get_summation() {
 		Input{1, 5, '%2'},
 	]
 	expected := [15, 15, 3, 18, 36, 14, 3]
-	for i, inp in inputs {
+	for i, inp in summations {
 		res := get_summation(inp.min, inp.max, inp.expression) or {
 			panic(err)
 		}
-		assert res == expected[i]
+		exp := expected[i]
+		assert res == exp
 	}
 }
 

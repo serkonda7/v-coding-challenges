@@ -30,7 +30,8 @@ fn test_abundant_range() {
 	]
 	for i, range in ranges {
 		res := abundant_in_range(range[0], range[1])
-		assert res == expected[i]
+		exp := expected[i]
+		assert res == exp
 	}
 }
 

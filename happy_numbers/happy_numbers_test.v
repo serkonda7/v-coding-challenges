@@ -3,11 +3,13 @@ module happy_numbers
 fn test_is_happy() {
 	happy_nums := [1, 23, 100]
 	for num in happy_nums {
-		assert is_happy(num) == true
+		res := is_happy(num)
+		assert res == true
 	}
 	unhappy_nums := [4, 15, 22]
 	for num in unhappy_nums {
-		assert is_happy(num) == false
+		res := is_happy(num)
+		assert res == false
 	}
 }
 
@@ -19,7 +21,8 @@ fn test_happy_range() {
 	]
 	for i, inp in inputs {
 		res := happy_in_range(inp[0], inp[1])
-		assert res == expected[i]
+		exp := expected[i]
+		assert res == exp
 	}
 }
 
@@ -31,6 +34,7 @@ fn test_square_steps() {
 	]
 	for i, inp in inputs {
 		_, steps := square_steps(inp)
-		assert steps == expected[i]
+		exp := expected[i]
+		assert steps == exp
 	}
 }
