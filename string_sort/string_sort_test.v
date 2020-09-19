@@ -13,7 +13,7 @@ fn test_plain_text() {
 fn test_number_precedence() {
 	input := 'happy42'
 	exp := '24ahppy'
-	res := sort(inp)
+	res := sort(input)
 	assert res == exp
 }
 
