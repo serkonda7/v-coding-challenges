@@ -21,6 +21,7 @@ fn test_with_escape() {
 	expected := [false, true, true]
 	for i, inp in inputs {
 		res := is_balanced(inp)
-		assert res == expected[i]
+		exp := expected[i]
+		assert res == exp
 	}
 }

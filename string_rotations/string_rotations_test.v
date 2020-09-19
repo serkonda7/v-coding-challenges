@@ -10,6 +10,7 @@ fn test_rotated_string() {
 	]
 	for i, inp in inputs {
 		res := rotated_string(inp)
-		assert res == expected[i]
+		exp := expected[i]
+		assert res == exp
 	}
 }
