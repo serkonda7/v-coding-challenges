@@ -15,7 +15,7 @@ pub fn is_gapful(num int) bool {
 	return res == 0
 }
 
-pub fn gapful_in_range(start, end int) []int {
+pub fn gapful_in_range(start int, end int) []int {
 	mut are_gapful := []int{}
 	for i in start .. end + 1 {
 		if is_gapful(i) {

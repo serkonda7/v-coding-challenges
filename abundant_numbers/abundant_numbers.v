@@ -25,7 +25,7 @@ pub fn is_abundant(num int) bool {
 	return sum > num
 }
 
-pub fn abundant_in_range(min, max int) []int {
+pub fn abundant_in_range(min int, max int) []int {
 	rmin := int(math.max(min, 1))
 	mut are_abundant := []int{}
 	for i in rmin .. max {

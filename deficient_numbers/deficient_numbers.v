@@ -25,7 +25,7 @@ pub fn is_deficient(num int) bool {
 	return sum < num
 }
 
-pub fn deficient_in_range(min, max int) []int {
+pub fn deficient_in_range(min int, max int) []int {
 	rmin := int(math.max(min, 1))
 	mut are_deficient := []int{}
 	for i in rmin .. max {

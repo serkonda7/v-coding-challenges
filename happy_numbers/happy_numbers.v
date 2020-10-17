@@ -34,7 +34,7 @@ pub fn is_happy(num int) bool {
 	}
 }
 
-pub fn happy_in_range(start, end int) []int {
+pub fn happy_in_range(start int, end int) []int {
 	mut are_happy := []int{}
 	for i in start .. end + 1 {
 		if is_happy(i) {

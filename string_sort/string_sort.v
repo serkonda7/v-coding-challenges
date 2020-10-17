@@ -20,7 +20,7 @@ pub fn sort(s string) string {
 	return sorted
 }
 
-fn quick_sort(mut chars []byte, l, r int) {
+fn quick_sort(mut chars []byte, l int, r int) {
 	if l >= r {
 		return
 	}

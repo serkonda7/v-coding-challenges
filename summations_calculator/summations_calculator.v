@@ -16,7 +16,7 @@ const (
 	}
 )
 
-pub fn get_summation(min, max int, expression string) ?int {
+pub fn get_summation(min int, max int, expression string) ?int {
 	expr := expression.replace(' ', '')
 	expr_type := expr[0].str()
 	if expr_type !in expr_funcs {
@@ -34,22 +34,22 @@ pub fn get_summation(min, max int, expression string) ?int {
 }
 
 // Mathematic helper functions
-fn add(a, b int) int {
+fn add(a int, b int) int {
 	return a + b
 }
 
-fn sub(a, b int) int {
+fn sub(a int, b int) int {
 	return a - b
 }
 
-fn mult(a, b int) int {
+fn mult(a int, b int) int {
 	return a * b
 }
 
-fn div(a, b int) int {
+fn div(a int, b int) int {
 	return a / b
 }
 
-fn modulo(a, b int) int {
+fn modulo(a int, b int) int {
 	return a % b
 }
