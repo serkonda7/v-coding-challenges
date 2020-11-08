@@ -11,6 +11,19 @@ on:
     - cron: '0 0 * * *'
 
 jobs:
+  code-formatting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up V
+        uses: nocturlab/setup-vlang-action@v1
+        with:
+          v-version: master
+        id: v
+      - name: fmt -verify
+        run: v run fmt_verify_all.vsh
+
   test:
     runs-on: ubuntu-latest
     steps:
@@ -21,7 +34,5 @@ jobs:
         with:
           v-version: master
         id: v
-      - name: Check formatting
-        run: v run fmt_verify_all.vsh
       - name: Run tests
         run: v test .
