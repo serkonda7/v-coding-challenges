@@ -15,11 +15,8 @@ module happy_numbers
 pub fn is_happy(num int) bool {
 	mut num2 := num
 	for {
-		if num2 == 1 {
-			return true
-		}
-		if num2 == 4 {
-			return false
+		if num2 == 1 || num2 == 4 {
+			break
 		}
 		mut sum := 0
 		for {
@@ -32,6 +29,7 @@ pub fn is_happy(num int) bool {
 		}
 		num2 = sum
 	}
+	return num2 == 1
 }
 
 pub fn happy_in_range(start int, end int) []int {
@@ -48,11 +46,8 @@ pub fn square_steps(num int) (bool, []string) {
 	mut num2 := num
 	mut steps := []string{}
 	for {
-		if num2 == 1 {
-			return true, steps
-		}
-		if num2 == 4 {
-			return false, steps
+		if num2 == 1 || num2 == 4 {
+			break
 		}
 		mut sum := 0
 		mut squares := []string{}
@@ -69,4 +64,5 @@ pub fn square_steps(num int) (bool, []string) {
 		steps << '$sqr_str = $sum'
 		num2 = sum
 	}
+	return num2 == 1, steps
 }
