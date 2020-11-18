@@ -14,16 +14,19 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: vlang/v
+          path: v
       - name: Build V
-        run: make
+        run: |
+          cd v
+          make
       - name: Checkout sololearn-coding-challenges
         uses: actions/checkout@v2
         with:
-            path: challenges
+            path: scc
       - name: v fmt -verify
         run: |
-          cd challenges
-          ../v run fmt_verify_all.vsh
+          cd scc
+          ../v/v run fmt_verify_all.vsh
 
   test:
     runs-on: ubuntu-latest
