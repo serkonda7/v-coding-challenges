@@ -15,7 +15,9 @@ jobs:
         with:
           repository: vlang/v
       - name: Build V
-        run: make
+        run: |
+          make
+          ./v symlink
       - name: Checkout sololearn-coding-challenges
         uses: actions/checkout@v2
         with:
@@ -23,7 +25,7 @@ jobs:
       - name: v fmt -verify
         run: |
           cd challenges
-          ../v run fmt_verify_all.vsh
+          v run fmt_verify_all.vsh
 
   test:
     runs-on: ubuntu-latest
