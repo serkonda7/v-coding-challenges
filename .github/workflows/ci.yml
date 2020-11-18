@@ -2,11 +2,7 @@ name: CI
 
 on:
   push:
-    branches:
-      - '**'
   pull_request:
-    branches:
-      - '**'
   schedule:
     - cron: '0 0 * * *'
 
@@ -14,25 +10,37 @@ jobs:
   code-formatting:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout V
         uses: actions/checkout@v2
-      - name: Set up V
-        uses: nocturlab/setup-vlang-action@v1
         with:
-          v-version: master
-        id: v
-      - name: fmt -verify
-        run: v run fmt_verify_all.vsh
+          repository: vlang/v
+      - name: Build V
+        run: |
+          make
+          sudo ./v symlink
+      - name: Checkout sololearn-coding-challenges
+        uses: actions/checkout@v2
+        with:
+            path: challenges
+      - name: v fmt -verify
+        run: |
+          cd challenges
+          v run fmt_verify_all.vsh
 
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout V
         uses: actions/checkout@v2
-      - name: Set up V
-        uses: nocturlab/setup-vlang-action@v1
         with:
-          v-version: master
-        id: v
+          repository: vlang/v
+      - name: Build V
+        run: make
+      - name: Checkout sololearn-coding-challenges
+        uses: actions/checkout@v2
+        with:
+            path: challenges
       - name: Run tests
-        run: v test .
+        run: |
+          cd challenges
+          ../v test .
