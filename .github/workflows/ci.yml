@@ -17,7 +17,7 @@ jobs:
       - name: Build V
         run: |
           make
-          ./v symlink
+          sudo ./v symlink
       - name: Checkout sololearn-coding-challenges
         uses: actions/checkout@v2
         with:
