@@ -27,8 +27,11 @@ fn test_get_summation() {
 }
 
 fn test_errors() {
+	mut errors := 0
 	inp := Input{1, 3, 'y 3'}
 	get_summation(inp.min, inp.max, inp.expression) or {
+		errors++
 		assert err == 'Unknown type for expression: `y 3`'
 	}
+	assert errors == 1
 }
