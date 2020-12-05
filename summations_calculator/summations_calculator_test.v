@@ -18,9 +18,7 @@ fn test_get_summation() {
 	]
 	expected := [15, 15, 3, 18, 36, 14, 3]
 	for i, inp in summations {
-		res := get_summation(inp.min, inp.max, inp.expression) or {
-			panic(err)
-		}
+		res := get_summation(inp.min, inp.max, inp.expression) or { panic(err) }
 		exp := expected[i]
 		assert res == exp
 	}

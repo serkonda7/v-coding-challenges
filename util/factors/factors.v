@@ -22,9 +22,7 @@ pub fn get_proper_factors(num int) ?[]int {
 }
 
 pub fn get_factors(num int) ?[]int {
-	mut factors := get_proper_factors(num) or {
-		return error(err)
-	}
+	mut factors := get_proper_factors(num) or { return error(err) }
 	is_negative := num < 0
 	factors << num
 	if is_negative {

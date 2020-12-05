@@ -18,9 +18,7 @@ pub fn is_deficient(num int) bool {
 	if num <= 0 {
 		return false
 	}
-	facs := factors.get_proper_factors(num) or {
-		panic(err)
-	}
+	facs := factors.get_proper_factors(num) or { panic(err) }
 	sum := factors.factor_sum(facs)
 	return sum < num
 }
@@ -37,9 +35,7 @@ pub fn deficient_in_range(min int, max int) []int {
 }
 
 pub fn get_deficiency(num int) int {
-	facs := factors.get_proper_factors(num) or {
-		panic(err)
-	}
+	facs := factors.get_proper_factors(num) or { panic(err) }
 	sum := factors.factor_sum(facs)
 	// Negative value for non-deficient numbers
 	return num - sum

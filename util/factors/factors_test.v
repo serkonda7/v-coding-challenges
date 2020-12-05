@@ -9,9 +9,7 @@ fn test_positive_num_factors() {
 		[1, 3, 5, 7, 9, 15, 21, 27, 35, 45, 63, 105, 135, 189, 315, 945],
 	]
 	for i, num in numbers {
-		res := get_factors(num) or {
-			panic(err)
-		}
+		res := get_factors(num) or { panic(err) }
 		exp := factors[i]
 		assert res == exp
 	}
@@ -34,9 +32,7 @@ fn test_negative_num_factors() {
 		[-15, -5, -3, -1, 1, 3, 5, 15],
 	]
 	for i, num in numbers {
-		mut res := get_factors(num) or {
-			panic(err)
-		}
+		mut res := get_factors(num) or { panic(err) }
 		res.sort()
 		exp := factors[i]
 		assert res == exp
