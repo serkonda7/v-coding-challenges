@@ -16,10 +16,10 @@ pub fn is_valid(ip string) bool {
 	if nums.len != 4 {
 		return false
 	}
-	mut no_digit_re, _, _ := regex.regex('\\D')
+	mut no_digit_re := regex.regex_opt(r'\D') or { panic(err) }
 	for n in nums {
 		_, re_match := no_digit_re.find(n)
-		if re_match != 0 {
+		if re_match != -1 {
 			return false
 		}
 		if n.int() < 0 || n.int() > 255 {
