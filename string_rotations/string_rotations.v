@@ -14,7 +14,7 @@ pub fn rotated_string(str string) []string {
 	mut rot_str := []string{len: len}
 	for i in 0 .. len {
 		last_str := if i > 0 { rot_str[i - 1] } else { str }
-		s := last_str[1..len] + last_str[0].str()
+		s := last_str[1..len] + last_str[0].ascii_str()
 		rot_str[i] = s
 	}
 	return rot_str

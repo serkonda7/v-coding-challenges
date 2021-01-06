@@ -9,7 +9,7 @@ module gapful_numbers
 
 pub fn is_gapful(num int) bool {
 	num_str := num.str().bytes()
-	divisor_str := num_str[0].str() + num_str.last().str()
+	divisor_str := num_str[0].ascii_str() + num_str.last().ascii_str()
 	divisor := divisor_str.int()
 	res := num % divisor
 	return res == 0

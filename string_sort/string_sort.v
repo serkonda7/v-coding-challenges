@@ -15,7 +15,7 @@ pub fn sort(s string) string {
 	quick_sort(mut chars, 0, chars.len - 1)
 	mut sorted := ''
 	for c in chars {
-		sorted += c.str()
+		sorted += c.ascii_str()
 	}
 	return sorted
 }

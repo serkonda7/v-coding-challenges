@@ -18,7 +18,7 @@ const (
 
 pub fn get_summation(min int, max int, expression string) ?int {
 	expr := expression.replace(' ', '')
-	expr_type := expr[0].str()
+	expr_type := expr[0].ascii_str()
 	if expr_type !in expr_funcs {
 		return error('Unknown type for expression: `$expression`')
 	}
