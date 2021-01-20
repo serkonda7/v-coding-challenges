@@ -1,8 +1,8 @@
-# V SoloLearn Coding Challenges
+# V Coding Challenges
 
 ![CI][ci-master]
 
-This repo contains the coding challenges from the [SoloLearn app][sololearn] implemented in V. <br>
+This repo is a collection of various coding challenges implemented in V. <br>
 It can help V newcomers by providing lots of short and straightforward code pieces.
 
 > The challenges are far from complete, more will follow soon!
@@ -15,4 +15,3 @@ Licensed under the [MIT License](LICENSE.md)
 
 <!-- Links -->
 [ci-master]: https://github.com/Serkonda/v-sololearn-coding-challenges/workflows/CI/badge.svg?branch=master
-[sololearn]: https://www.sololearn.com
