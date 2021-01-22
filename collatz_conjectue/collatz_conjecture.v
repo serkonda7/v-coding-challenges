@@ -42,3 +42,21 @@ pub fn get_sequence_iterative(num int) ([]string, int) {
 	}
 	return sequence, steps
 }
+
+pub fn get_sequence_recursive(num int) ([]string, int) {
+	if num == 1 {
+		return ['1 * 3 + 1 = 4'], 1
+	}
+	mut res := 0
+	mut sequence := ['']
+	if num % 2 == 0 {
+		res = num / 2
+		sequence = ['$num / 2 = $res']
+	} else {
+		res = num * 3 + 1
+		sequence = ['$num * 3 + 1 = $res']
+	}
+	seq, steps := get_sequence_recursive(res)
+	sequence << seq
+	return sequence, 1 + steps
+}

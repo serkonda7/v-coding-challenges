@@ -24,3 +24,9 @@ fn test_get_sequence_iterative() {
 	assert sequence == exp_sequence
 	assert steps == exp_steps
 }
+
+fn test_get_sequence_recursive() {
+	sequence, steps := get_sequence_recursive(17)
+	assert sequence == exp_sequence
+	assert steps == exp_steps
+}
