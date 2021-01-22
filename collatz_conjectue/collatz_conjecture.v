@@ -45,7 +45,6 @@ pub fn get_sequence_iterative(num int) ([]string, int) {
 
 pub fn get_sequence_recursive(num int) ([]string, int) {
 	if num == 1 {
-		// sequence << '1 * 3 + 1 = 4'
 		return ['1 * 3 + 1 = 4'], 1
 	}
 	mut res := 0
