@@ -14,4 +14,4 @@ Licensed under the [MIT License](LICENSE.md)
 
 
 <!-- Links -->
-[ci-master]: https://github.com/Serkonda/v-sololearn-coding-challenges/workflows/CI/badge.svg?branch=master
+[ci-master]: https://github.com/serkonda7/v-coding-challenges/workflows/CI/badge.svg?branch=master
