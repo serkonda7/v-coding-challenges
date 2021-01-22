@@ -37,4 +37,4 @@ jobs:
         with:
             path: challenges
       - name: Run tests
-        run: ./v test challenges
+        run: ./v -W test challenges
