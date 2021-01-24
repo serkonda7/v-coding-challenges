@@ -13,6 +13,6 @@ const (
 
 pub fn vowel_count(str string) int {
 	chars := str.to_lower().split('')
-	vowels := chars.filter(it in vowel_str)
+	vowels := chars.filter(it in vowel_counter.vowel_str)
 	return vowels.len
 }

@@ -24,19 +24,19 @@ pub fn is_valid(password string) bool {
 	if password.count(' ') > 0 {
 		return false
 	}
-	mut number_re, _, _ := regex.regex(r'\d')
+	mut number_re := regex.regex_opt(r'\d') or { panic(err) }
 	if number_re.find_all(password) == []int{} {
 		return false
 	}
-	mut lower_re, _, _ := regex.regex(r'\a')
+	mut lower_re := regex.regex_opt(r'\a') or { panic(err) }
 	if lower_re.find_all(password) == []int{} {
 		return false
 	}
-	mut upper_re, _, _ := regex.regex(r'\A')
+	mut upper_re := regex.regex_opt(r'\A') or { panic(err) }
 	if upper_re.find_all(password) == []int{} {
 		return false
 	}
-	mut special_re, _, _ := regex.regex(r'[^A-Za-z0-9]')
+	mut special_re := regex.regex_opt(r'[^A-Za-z0-9]') or { panic(err) }
 	if special_re.find_all(password) == []int{} {
 		return false
 	}

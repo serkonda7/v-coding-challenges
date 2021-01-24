@@ -21,12 +21,12 @@ const (
 
 fn test_get_sequence_iterative() {
 	sequence, steps := get_sequence_iterative(17)
-	assert sequence == exp_sequence
-	assert steps == exp_steps
+	assert sequence == collatz_conjecture.exp_sequence
+	assert steps == collatz_conjecture.exp_steps
 }
 
 fn test_get_sequence_recursive() {
 	sequence, steps := get_sequence_recursive(17)
-	assert sequence == exp_sequence
-	assert steps == exp_steps
+	assert sequence == collatz_conjecture.exp_sequence
+	assert steps == collatz_conjecture.exp_steps
 }

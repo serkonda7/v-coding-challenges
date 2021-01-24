@@ -19,11 +19,11 @@ const (
 pub fn get_summation(min int, max int, expression string) ?int {
 	expr := expression.replace(' ', '')
 	expr_type := expr[0].ascii_str()
-	if expr_type !in expr_funcs {
+	if expr_type !in summations_calculator.expr_funcs {
 		return error('Unknown type for expression: `$expression`')
 	}
 	expr_num := expr[1..].int()
-	func := expr_funcs[expr_type]
+	func := summations_calculator.expr_funcs[expr_type]
 	mut sum := 0
 	// In the task the range is inclusive!
 	for i in min .. max + 1 {
