@@ -6,7 +6,7 @@ Create a program that takes 3 inputs, a lower bound, an upper bound and the expr
 module summations_calculator
 
 const (
-	expr_funcs = {
+	expr_funcs = map{
 		'+': add
 		'-': sub
 		'*': mult
