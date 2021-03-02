@@ -39,4 +39,6 @@ jobs:
         with:
             path: challenges
       - name: Run tests
+        run: ./v test challenges
+      - name: Run tests with strict errors
         run: ./v -W test challenges
