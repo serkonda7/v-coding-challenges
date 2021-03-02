@@ -29,7 +29,7 @@ fn test_errors() {
 	inp := Input{1, 3, 'y 3'}
 	get_summation(inp.min, inp.max, inp.expression) or {
 		errors++
-		assert err == 'Unknown type for expression: `y 3`'
+		assert err.msg == 'Unknown type for expression: `y 3`'
 	}
 	assert errors == 1
 }

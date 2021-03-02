@@ -19,7 +19,7 @@ fn test_factors_of_zero() {
 	mut errors := 0
 	get_factors(0) or {
 		errors++
-		assert err == 'Cannot get factors of `0`'
+		assert err.msg == 'Cannot get factors of `0`'
 	}
 	assert errors == 1
 }
