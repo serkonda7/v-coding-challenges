@@ -22,8 +22,12 @@ jobs:
         uses: actions/checkout@v2
         with:
             path: challenges
-      - name: v fmt -verify
-        run: ./v fmt -verify challenges/
+      # - name: Run vet
+      #   run: ./v vet challenges/
+      - name: Verify formatting
+        run: |
+          ./v fmt -verify challenges/
+          ./v fmt -diff challenges/
 
   test:
     runs-on: ubuntu-latest
@@ -40,5 +44,5 @@ jobs:
             path: challenges
       - name: Run tests
         run: ./v test challenges
-      - name: Run tests with strict errors
+      - name: Run tests with warnings as errors
         run: ./v -W test challenges
