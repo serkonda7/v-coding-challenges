@@ -22,8 +22,8 @@ jobs:
         uses: actions/checkout@v2
         with:
             path: challenges
-      # - name: Run vet
-      #   run: ./v vet challenges/
+      - name: Run vet
+        run: ./v vet challenges/
       - name: Verify formatting
         run: |
           ./v fmt -verify challenges/
