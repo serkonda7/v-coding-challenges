@@ -2,19 +2,19 @@ module sudoku_validator
 
 const target_sum = 45
 
-pub fn is_sudoku_valid(sudoku_rows [][]int) bool {
-	if sudoku_rows.len != 9 {
-		return false
+pub fn is_valid(sudokus [][]int) ?bool {
+	if sudokus.len != 9 {
+		return error('Expected 9 rows, got $sudokus.len')
 	}
-	for row in sudoku_rows {
+	for i, row in sudokus {
 		if row.len != 9 {
-			return false
+			return error('Expected 9 columns, but row ${i + 1} only has $row.len')
 		}
 	}
 	mut row_sums := []int{len: 9}
 	mut col_sums := []int{len: 9}
 	mut square_sums := []int{len: 9}
-	for i, row in sudoku_rows {
+	for i, row in sudokus {
 		for j, val in row {
 			row_sums[i] += val
 			col_sums[j] += val

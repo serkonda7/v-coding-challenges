@@ -14,15 +14,16 @@ fn test_valid_sudokus() {
 		[5, 3, 9, 6, 8, 2, 1, 4, 7],
 	]
 	for s in sudokus {
-		assert is_sudoku_valid(s)
+		res := is_valid(s) or {
+			eprintln(err.msg)
+			false
+		}
+		assert res
 	}
 }
 
 fn test_invalid_sudokus() {
 	mut sudokus := [][][]int{}
-	sudokus << [[0], [1], [2], [3], [4], [5], [6], [7]] // too few rows
-	sudokus << [[0], [1], [2], [3], [4], [5], [6], [7], [8]] // too few columns
-	// double eight, first col
 	sudokus << [
 		[3, 5, 2, 9, 1, 8, 6, 7, 4],
 		[8, 9, 7, 2, 4, 6, 5, 1, 3],
@@ -35,6 +36,33 @@ fn test_invalid_sudokus() {
 		[5, 3, 9, 6, 8, 2, 1, 4, 7],
 	]
 	for s in sudokus {
-		assert !is_sudoku_valid(s)
+		res := !is_valid(s) or {
+			eprintln(err.msg)
+			false
+		}
+		assert res
 	}
+}
+
+struct ErrInput {
+	sudoku  [][]int
+	err_msg string
+}
+
+fn test_sudoku_errors() {
+	inputs := [
+		ErrInput{[[0], [1], [2], [3], [4], [5], [6]], 'Expected 9 rows, got 7'},
+		ErrInput{[[0, 1, 2, 3, 4], [1], [2], [3], [4], [5], [6],
+			[7], [8]], 'Expected 9 columns, but row 1 only has 5'},
+		ErrInput{[[0, 1, 2, 3, 4, 5, 6, 7, 8], [1, 2, 3], [2],
+			[3], [4], [5], [6], [7], [8]], 'Expected 9 columns, but row 2 only has 3'},
+	]
+	mut expexted_errors := inputs.len
+	for inp in inputs {
+		is_valid(inp.sudoku) or {
+			expexted_errors--
+			assert err.msg == inp.err_msg
+		}
+	}
+	assert expexted_errors == 0
 }
