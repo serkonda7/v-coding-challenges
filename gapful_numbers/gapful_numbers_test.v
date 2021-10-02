@@ -3,18 +3,12 @@ module gapful_numbers
 fn test_is_gapful() {
 	gapful_nums := [192, 583]
 	for num in gapful_nums {
-		res := is_gapful(num) or {
-			assert err.msg == ''
-			false
-		}
+		res := is_gapful(num) or { panic(err) }
 		assert res
 	}
 	ungapful_nums := [210, 1042]
 	for num in ungapful_nums {
-		res := is_gapful(num) or {
-			assert err.msg == ''
-			false
-		}
+		res := is_gapful(num) or { panic(err) }
 		assert !res
 	}
 }
@@ -35,8 +29,6 @@ fn test_errors_is_gapful() {
 	assert expected_err_count == 0
 }
 
-const empty_int_arr = []int{}
-
 fn test_gapful_range() {
 	inputs := [[200, 250], [1030, 1045], [374, 396]]
 	expected := [
@@ -45,10 +37,7 @@ fn test_gapful_range() {
 		[374, 385, 390],
 	]
 	for i, inp in inputs {
-		res := gapful_in_range(inp[0], inp[1]) or {
-			assert err.msg == ''
-			gapful_numbers.empty_int_arr
-		}
+		res := gapful_in_range(inp[0], inp[1]) or { panic(err) }
 		exp := expected[i]
 		assert res == exp
 	}
