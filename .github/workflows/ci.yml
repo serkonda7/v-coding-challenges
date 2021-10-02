@@ -18,7 +18,7 @@ jobs:
           repository: vlang/v
       - name: Build V
         run: make
-      - name: Checkout sololearn-coding-challenges
+      - name: Checkout v-coding-challenges
         uses: actions/checkout@v2
         with:
             path: challenges
@@ -38,7 +38,7 @@ jobs:
           repository: vlang/v
       - name: Build V
         run: make
-      - name: Checkout sololearn-coding-challenges
+      - name: Checkout v-coding-challenges
         uses: actions/checkout@v2
         with:
             path: challenges
