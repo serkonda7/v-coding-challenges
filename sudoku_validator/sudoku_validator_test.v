@@ -14,10 +14,7 @@ fn test_valid_sudokus() {
 		[5, 3, 9, 6, 8, 2, 1, 4, 7],
 	]
 	for s in sudokus {
-		res, _ := is_valid(s) or {
-			eprintln(err.msg)
-			false, map[int][]int{}
-		}
+		res, _ := is_valid(s) or { panic(err) }
 		assert res
 	}
 }
@@ -44,33 +41,26 @@ fn test_invalid_sudokus() {
 		6: [0, 7]
 	}}
 	for inp in inputs {
-		res, indices := is_valid(inp.sudoku) or {
-			eprintln(err.msg)
-			false, map[int][]int{}
-		}
+		res, indices := is_valid(inp.sudoku) or { panic(err) }
 		assert !res
 		assert indices == inp.indices
 	}
 }
 
-struct ErrInput {
-	sudoku  [][]int
-	err_msg string
-}
-
 fn test_sudoku_errors() {
-	mut inputs := [
-		ErrInput{[[0], [1], [2], [3], [4], [5], [6]], 'Expected 9 rows, got 7'},
-		ErrInput{[[0, 1, 2, 3, 4], [1], [2], [3], [4], [5], [6],
-			[7], [8]], 'Expected 9 columns, but row 1 only has 5'},
-		ErrInput{[[0, 1, 2, 3, 4, 5, 6, 7, 8], [1, 2, 3], [2],
-			[3], [4], [5], [6], [7], [8]], 'Expected 9 columns, but row 2 only has 3'},
-	]
-	mut expexted_errors := inputs.len
-	for inp in inputs {
-		is_valid(inp.sudoku) or {
+	input_map := {
+		'Expected 9 rows, got 7':                   [[0], [1],
+			[2], [3], [4], [5], [6]]
+		'Expected 9 columns, but row 1 only has 5': [[0, 1, 2, 3, 4],
+			[1], [2], [3], [4], [5], [6], [7], [8]]
+		'Expected 9 columns, but row 2 only has 3': [[0, 1, 2, 3, 4, 5, 6, 7, 8],
+			[1, 2, 3], [2], [3], [4], [5], [6], [7], [8]]
+	}
+	mut expexted_errors := 3
+	for msg, sudoku_rows in input_map {
+		is_valid(sudoku_rows) or {
 			expexted_errors--
-			assert err.msg == inp.err_msg
+			assert err.msg == msg
 		}
 	}
 	assert expexted_errors == 0
