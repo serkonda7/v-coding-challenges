@@ -8,8 +8,8 @@ struct Input {
 const inputs = build_inputs()
 
 fn build_inputs() []Input {
-	mut inputs := []Input{}
-	inputs << Input{
+	mut inp_array := []Input{}
+	inp_array << Input{
 		num: 17
 		sequence: [
 			'17 * 3 + 1 = 52',
@@ -26,7 +26,7 @@ fn build_inputs() []Input {
 			'2 / 2 = 1',
 		]
 	}
-	return inputs
+	return inp_array
 }
 
 fn test_get_sequence_iterative() {
