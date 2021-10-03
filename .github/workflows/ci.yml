@@ -9,7 +9,7 @@ on:
     - cron: '0 0 * * 1'
 
 jobs:
-  code-formatting:
+  code-style:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout V
@@ -23,7 +23,7 @@ jobs:
         with:
             path: challenges
       - name: Run vet
-        run: ./v vet challenges/
+        run: ./v vet -W challenges/
       - name: Verify formatting
         run: |
           ./v fmt -verify challenges/

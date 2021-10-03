@@ -1,6 +1,6 @@
-/*
-Collatz Conjecture
+module collatz_conjecture
 
+/*
 The Collatz conjecture (also known as the Ulam conjecture or the Syracuse problem) is an unsolved mathematical problem, which is very easy to formulate:
 
 1. Take any natural number
@@ -8,17 +8,21 @@ The Collatz conjecture (also known as the Ulam conjecture or the Syracuse proble
 3. Repeat step 2. until you reach 4, 2, 1 sequence
 4. You will ALWAYS reach 1, eventually.
 
-That last sequence: 4, 2, 1 is an infinitely repeating loop. The formulated conjecture is that for any x the sequence will always reach 4, 2, 1 ultimately.
+That last sequence: 4, 2, 1 is an infinitely repeating loop. The formulated conjecture is
+that for any x the sequence will always reach 4, 2, 1 ultimately.
 
-While the problem cannot be proved, the assignment is to write a code that will produce and print out the whole sequence for an input number.
+While the problem cannot be proved, the assignment is to write a code that will produce
+and print out the whole sequence for an input number.
 
-
-Both recursive and iterative approaches count. Bonus points for printing out how many iterations it took for x to converge to 1.
+Both recursive and iterative approaches count.
+Bonus points for printing out how many iterations it took for x to converge to 1.
 */
-module collatz_conjecture
 
-pub fn get_sequence_iterative(num int) ([]string, int) {
-	mut got_one := false
+// get_sequence_iterative returns the sequence of calculations for a given number and the number of steps.
+pub fn get_sequence_iterative(num int) ?([]string, int) {
+	if num <= 0 {
+		return error('Input has to be an natural number')
+	}
 	mut n := num
 	mut sequence := []string{}
 	mut steps := 0
@@ -33,19 +37,20 @@ pub fn get_sequence_iterative(num int) ([]string, int) {
 			n = res
 		}
 		steps++
-		if got_one {
-			break
-		}
 		if n == 1 {
-			got_one = true
+			break
 		}
 	}
 	return sequence, steps
 }
 
-pub fn get_sequence_recursive(num int) ([]string, int) {
-	if num == 1 {
-		return ['1 * 3 + 1 = 4'], 1
+// get_sequence_recursive returns the sequence of calculations for a given number and the number of steps.
+// This approach uses recursion.
+pub fn get_sequence_recursive(num int) ?([]string, int) {
+	if num <= 0 {
+		return error('Input has to be an natural number')
+	} else if num == 1 {
+		return []string{}, 0
 	}
 	mut res := 0
 	mut sequence := ['']
@@ -56,7 +61,7 @@ pub fn get_sequence_recursive(num int) ([]string, int) {
 		res = num * 3 + 1
 		sequence = ['$num * 3 + 1 = $res']
 	}
-	seq, steps := get_sequence_recursive(res)
+	seq, steps := get_sequence_recursive(res) ?
 	sequence << seq
-	return sequence, 1 + steps
+	return sequence, steps + 1
 }

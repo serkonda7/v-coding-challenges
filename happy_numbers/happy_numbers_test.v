@@ -3,21 +3,24 @@ module happy_numbers
 fn test_is_happy() {
 	happy_nums := [1, 23, 100]
 	for num in happy_nums {
-		res := is_happy(num)
-		assert res == true
+		assert is_happy(num)
 	}
-	unhappy_nums := [4, 15, 22]
-	for num in unhappy_nums {
-		res := is_happy(num)
-		assert res == false
+	sad_nums := [4, 15, 22]
+	for num in sad_nums {
+		assert !is_happy(num)
+	}
+	other_nums := [-12, -1, 0]
+	for num in other_nums {
+		assert !is_happy(num)
 	}
 }
 
 fn test_happy_range() {
-	inputs := [[1, 18], [95, 105]]
+	inputs := [[1, 18], [95, 105], [10, 13]]
 	expected := [
 		[1, 7, 10, 13],
 		[97, 100, 103],
+		[10],
 	]
 	for i, inp in inputs {
 		res := happy_in_range(inp[0], inp[1])

@@ -1,21 +1,19 @@
-/*
-Summations Calculator
-
-Create a program that takes 3 inputs, a lower bound, an upper bound and the expression. Calculate the sum of that range based on the given expression and output the result.
-*/
 module summations_calculator
 
-const (
-	expr_funcs = {
-		'+': add
-		'-': sub
-		'*': mult
-		'x': mult
-		'/': div
-		'%': modulo
-	}
-)
+/*
+Create a program that takes 3 inputs, a lower bound, an upper bound and the expression. Calculate the sum of that range based on the given expression and output the result.
+*/
 
+const expr_funcs = {
+	'+': add
+	'-': sub
+	'*': mult
+	'x': mult
+	'/': div
+	'%': modulo
+}
+
+// get_summation returns the sum using the given expression for the range from ´min´ to ´max´ (inclusive)
 pub fn get_summation(min int, max int, expression string) ?int {
 	expr := expression.replace(' ', '')
 	expr_type := expr[0].ascii_str()
@@ -25,7 +23,6 @@ pub fn get_summation(min int, max int, expression string) ?int {
 	expr_num := expr[1..].int()
 	func := summations_calculator.expr_funcs[expr_type]
 	mut sum := 0
-	// In the task the range is inclusive!
 	for i in min .. max + 1 {
 		step := func(i, expr_num)
 		sum += step

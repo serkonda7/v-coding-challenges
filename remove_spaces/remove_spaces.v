@@ -1,11 +1,7 @@
-/*
-Remove Spaces from a String
-
-Given a string as input, output it without spaces.
-*/
 module remove_spaces
 
-pub fn remove_whitespace(str string) string {
+// remove_spaces returns a input string with all spaces removed
+pub fn remove_spaces(str string) string {
 	s := str.replace(' ', '')
 	return s
 }
