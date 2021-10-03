@@ -1,12 +1,11 @@
-/*
-Balanced Parenthesis
-
-Create a program that checks if in a given string expression all the parenthesis are balanced.
-
-Also, take into account the "\" escape sequences:
-*/
 module balanced_parenthesis
 
+/*
+Create a program that checks if in a given string expression all the parenthesis are balanced.
+Also, take into account the "\" escape sequences:
+*/
+
+// is_balanced checks whether all parenthesis in a string are enclosed
 pub fn is_balanced(str string) bool {
 	mut open_paren := 0
 	mut open_brackets := 0
