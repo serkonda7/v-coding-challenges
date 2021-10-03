@@ -13,7 +13,7 @@ Tasks:
 import math
 import util.factors
 
-// is_deficient checks whether a number is deficient (see description above)
+// is_deficient checks whether a numbers factor sum is smaller than that number
 pub fn is_deficient(num int) bool {
 	if num <= 0 {
 		return false
@@ -38,7 +38,7 @@ pub fn deficient_in_range(min int, max int) ?[]int {
 	return are_deficient
 }
 
-// get_deficiency returns the difference between a given number and  its factor sum
+// get_deficiency returns the difference between a given number and its factor sum
 // Non-deficient numbers produce negative values
 pub fn get_deficiency(num int) int {
 	facs := factors.get_proper_factors(num) or { return 0 }
