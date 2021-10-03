@@ -8,7 +8,7 @@ fn test_remove_spaces() {
 		' before',
 		'after  ',
 		'\tfo o\t',
-		'spam\neggs And Ham'
+		'spam\neggs And Ham',
 	]
 	expected := [
 		'abcdefghijklmnopqrstuvwxyz',
@@ -17,7 +17,7 @@ fn test_remove_spaces() {
 		'before',
 		'after',
 		'\tfoo\t',
-		'spam\neggsAndHam'
+		'spam\neggsAndHam',
 	]
 	for i, inp in inputs {
 		res := remove_spaces(inp)
