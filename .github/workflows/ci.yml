@@ -9,7 +9,7 @@ on:
     - cron: '0 0 * * 1'
 
 jobs:
-  code-formatting:
+  code-style:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout V
