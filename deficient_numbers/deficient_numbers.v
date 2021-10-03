@@ -1,8 +1,9 @@
 module deficient_numbers
 
 /*
+https://en.wikipedia.org/wiki/Deficient_number
+
 A number is considered deficient if the sum of its factors is less than that number.
-  https://en.wikipedia.org/wiki/Deficient_number
 
 Tasks:
   - (Easy) Write a program to verify whether a given number is deficient or not.

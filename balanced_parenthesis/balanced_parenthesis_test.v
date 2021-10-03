@@ -1,7 +1,7 @@
 module balanced_parenthesis
 
 fn test_balanced() {
-	inputs := ['', 'no parens here','(test)', '()(())', '{val()id}', 'a[]b', '([{)]}']
+	inputs := ['', 'no parens here', '(test)', '()(())', '{val()id}', 'a[]b', '([{)]}']
 	for inp in inputs {
 		assert is_balanced(inp)
 	}
