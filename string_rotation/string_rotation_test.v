@@ -1,4 +1,4 @@
-module string_rotations
+module string_rotation
 
 fn test_rotated_string() {
 	inputs := ['Hello', '', '  ', 'aBc1']
@@ -12,5 +12,6 @@ fn test_rotated_string() {
 		res := rotated_string(inp)
 		exp := expected[i]
 		assert res == exp
+		assert res.len == inp.len
 	}
 }
